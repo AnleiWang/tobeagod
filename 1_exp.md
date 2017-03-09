@@ -117,36 +117,23 @@ memset(visited, 0, sizeof(bool) * n);
 ![](https://res.jisuanke.com/img/upload/20161017/a6eb78c0ab120d1fb74875838d27adebe9bea2c6.png)
 
 ---
-
-### 举例描述
-
-一张图，有 $n$ 个点和 $m$ 条边。
-
-第一步：将所有的边按边权从小到大排序。
-
-排序完成后，我们选择权值最小的边 JN。这样我们的图就变成了：
-
-![](https://res.jisuanke.com/img/upload/20161025/229ab96a3e0759a048fb5d4d6ac1ad39051833e3.png)
-
-第二步，在剩下的边中寻找权值最小的边 UX：
-
-![](https://res.jisuanke.com/img/upload/20161025/9af251f35ce0ac1537dbc85251d3ce08821ec580.png)
-
-依次类推我们找到 HU，图变成：
-
-![](https://res.jisuanke.com/img/upload/20161025/d21d87286cafd41e2c1e794eca60f0360b56b3cb.png)
-
-最后我们只需要再选择 HN：
-
-![](https://res.jisuanke.com/img/upload/20161025/69acf7ccb03159cb70f9dde655e263ee905b6957.png)
-
-至此所有的点都已经连通，一个最小生成树构建完成。
-
-Kruskal 算法的时间复杂度由排序算法决定，若采用快排则时间复杂度为 $\mathcal{O}(m log m)$。
-
-总的时间复杂度为 $\mathcal{O}(mlogm + n\alpha (n))$。
-
----
 ### 指针的删除问题
 
 删除一个指针后，一定要把它设为空。
+
+---
+
+头文件：#include <string.h>
+
+strcmp() 用来比较字符串（区分大小写），其原型为：
+    int strcmp(const char *s1, const char *s2);
+
+【参数】s1, s2 为需要比较的两个字符串。
+
+字符串大小的比较是以ASCII 码表上的顺序来决定，此顺序亦为字符的值。strcmp()首先将s1 第一个字符值减去s2 第一个字符值，若差值为0 则再继续比较下个字符，若差值不为0 则将差值返回。例如字符串"Ac"和"ba"比较则会返回字符"A"(65)和'b'(98)的差值(－33)。
+
+【返回值】若参数s1 和s2 字符串相同则返回0。s1 若大于s2 则返回大于0 的值。s1 若小于s2 则返回小于0 的值。
+
+注意：strcmp() 以二进制的方式进行比较，不会考虑多字节或宽字节字符；如果考虑到本地化的需求，请使用 strcoll() 函数。
+
+---
